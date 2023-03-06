@@ -38,13 +38,27 @@ def index():
         <a href="{url_for('gptdemo')}">Ask questions to GPT</a>
         <p></p>
         <a href="{url_for('about')}">About</a>
+        <p></p>
+        <a href="{url_for('tal')}">Tal's prompt</a>
     '''
+# added by Tal
 @app.route('/about')
 def about():
     ''' contents of about page '''
     return f'''
         <h1>About<h1>
+        <p>Insert things about this project<p>
         '''
+
+@app.route('/tal')
+def tal():
+    ''' Tals prompt '''
+    response = gptAPI.get_write()
+    return f'''
+        <h3>Prompt: Describe a peaceful boatride on the ocean that becomes 
+        suspensful towards the end. Make it subtle.</h3>
+        <p><p>
+        <p>Response: {response}<p>'''
 
 @app.route('/gptdemo', methods=['GET', 'POST'])
 def gptdemo():
