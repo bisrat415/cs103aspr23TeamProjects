@@ -1,2 +1,2 @@
 # cs103aspr23TeamProjects
-# First creative project
+First creative project
