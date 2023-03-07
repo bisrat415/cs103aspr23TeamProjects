@@ -50,7 +50,7 @@ class GPT():
         completion = openai.Completion.create(
             engine=self.model_engine,
             prompt='''Describe a peaceful boatride on the ocean that becomes 
-            suspensful towards the end. Make it a subtle change. \n\n''',
+            suspensful towards the end. \n\n''',
             max_tokens=1024,
             n=1,
             stop=None,

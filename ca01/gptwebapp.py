@@ -39,7 +39,7 @@ def index():
         <p></p>
         <a href="{url_for('about')}">About</a>
         <p></p>
-        <a href="{url_for('tal')}">Tal's prompt</a>
+        <a href="{url_for('tal')}">Generate a story</a>
     '''
 # added by Tal
 @app.route('/about')
@@ -50,15 +50,31 @@ def about():
         <p>Insert things about this project<p>
         '''
 
-@app.route('/tal')
+@app.route('/tal', methods=['GET', 'POST'])
 def tal():
     ''' Tals prompt '''
-    response = gptAPI.get_write()
-    return f'''
-        <h3>Prompt: Describe a peaceful boatride on the ocean that becomes 
-        suspensful towards the end. Make it subtle.</h3>
+    if request.method == 'POST':
+        prompt = "Write a story no longer than a paragraph about this topic, don't include a title:" + request.form['prompt']
+        answer = gptAPI.getResponse(prompt)
+        return f'''
+        <h1>Short Story</h1>
+        <h3>Here is your short story!</h3>
+        <p>{answer}<p>
         <p><p>
-        <p>Response: {response}<p>'''
+        <a href={url_for('tal')}>Request another story</a>
+        '''
+    else:
+        return f'''
+        <h1>Tal's Story Generator</h1>
+        Enter a subject for a story below
+        <form method="post">
+            <textarea name="prompt"></textarea>
+            <p><input type=submit value="Get story">
+        </form>
+
+        <a href={url_for('index')}>Return to Home Page</a>
+        '''
+        
 
 @app.route('/gptdemo', methods=['GET', 'POST'])
 def gptdemo():
