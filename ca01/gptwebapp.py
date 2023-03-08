@@ -55,8 +55,8 @@ def tal():
     ''' Tals prompt
      Generates a short story based on a user inputed topic '''
     if request.method == 'POST':
-        prompt = "Write a story no longer than a paragraph about this topic, don't include a title:" + request.form['prompt']
-        answer = gptAPI.getResponse(prompt)
+        prompt = request.form['prompt']
+        answer = gptAPI.get_write(prompt)
         return f'''
         <h1>Short Story</h1>
         <h3>Here is your short story!</h3>

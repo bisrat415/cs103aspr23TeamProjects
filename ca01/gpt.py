@@ -45,12 +45,12 @@ class GPT():
         response = completion.choices[0].text
         return response
     
-    def get_write(self):
+    def get_write(self, prompt):
         ''' Specific prompt that GPT will respond to '''
         completion = openai.Completion.create(
             engine=self.model_engine,
-            prompt='''Describe a peaceful boatride on the ocean that becomes 
-            suspensful towards the end. \n\n''',
+            prompt= f'''Write a story no longer than a paragraph about 
+                this topic, don't include a title: {prompt} \n\n''',
             max_tokens=1024,
             n=1,
             stop=None,
