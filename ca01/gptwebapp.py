@@ -48,6 +48,7 @@ def about():
     return f'''
         <h1>About<h1>
         <p>Insert things about this project<p>
+        <a href={url_for('index')}>Return to Home Page</a>
         '''
 
 @app.route('/tal', methods=['GET', 'POST'])
@@ -56,7 +57,7 @@ def tal():
      Generates a short story based on a user inputed topic '''
     if request.method == 'POST':
         prompt = request.form['prompt']
-        answer = gptAPI.get_write(prompt)
+        answer = gptAPI.getWrite(prompt)
         return f'''
         <h1>Short Story</h1>
         <h3>Here is your short story!</h3>
@@ -72,7 +73,6 @@ def tal():
             <textarea name="prompt"></textarea>
             <p><input type=submit value="Get story">
         </form>
-
         <a href={url_for('index')}>Return to Home Page</a>
         '''
 
