@@ -40,6 +40,8 @@ def index():
         <a href="{url_for('about')}">About</a>
         <p></p>
         <a href="{url_for('tal')}">Generate a story</a>
+        <p></p>
+        <a href="{url_for('robin')}">Translate a message</a>
     '''
 # added by Tal
 @app.route('/about')
@@ -95,7 +97,7 @@ def robin():
         <div style="border:thin solid black">{answer}</div>
         Here is the answer in "pre" mode:
         <pre style="border:thin solid black">{answer}</pre>
-        <a href={url_for('gptdemo')}> make another query</a>
+        <a href={url_for('gptdemo')}>make another query</a>
         '''
     else:
         return '''
