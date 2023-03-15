@@ -45,8 +45,11 @@ class GPT():
         response = completion.choices[0].text
         return response
     
-    def get_write(self, prompt):
-        ''' Specific prompt that GPT will respond to '''
+    def getWrite(self, prompt):
+        ''' 
+            Specific prompt that GPT will respond to
+            contribution by Tal Spector
+        '''
         completion = openai.Completion.create(
             engine=self.model_engine,
             prompt= f'''Write a story no longer than a paragraph about 
