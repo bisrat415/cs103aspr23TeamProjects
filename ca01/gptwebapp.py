@@ -53,8 +53,10 @@ def about():
 
 @app.route('/tal', methods=['GET', 'POST'])
 def tal():
-    ''' Tals prompt
-     Generates a short story based on a user inputed topic '''
+    ''' 
+        Tals prompt
+        Generates a short story based on a user inputed topic
+    '''
     if request.method == 'POST':
         prompt = request.form['prompt']
         answer = gptAPI.getWrite(prompt)
