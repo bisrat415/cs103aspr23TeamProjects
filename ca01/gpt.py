@@ -45,6 +45,7 @@ class GPT():
         response = completion.choices[0].text
         return response
     
+    # tal
     def getWrite(self, prompt):
         ''' 
             Specific prompt that GPT will respond to
@@ -54,6 +55,26 @@ class GPT():
             engine=self.model_engine,
             prompt= f'''Write a story no longer than a paragraph about 
                 this topic, don't include a title: {prompt} \n\n''',
+            max_tokens=1024,
+            n=1,
+            stop=None,
+            temperature=0.8,
+        )
+
+        response = completion.choices[0].text
+        return response
+
+    # robin
+    def translator(self, prompt):
+        ''' 
+            Language Translator
+            contribution by Robin Buchthal
+        '''
+        completion = openai.Completion.create(
+            engine=self.model_engine,
+            prompt= f'''Translate the given text into the language inputted by the user, it will
+            be of the form "language, text". If there is no language provided,
+            translate the text into giberish: {prompt} \n\n''',
             max_tokens=1024,
             n=1,
             stop=None,

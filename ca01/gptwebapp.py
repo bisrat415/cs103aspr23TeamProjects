@@ -78,13 +78,13 @@ def tal():
 
 # added by robin 
 @app.route('/robin', methods=['GET', 'POST'])
-def gptdemo():
+def robin():
     ''' handle a get request by sending a form 
         and a post request by returning the GPT response
     '''
     if request.method == 'POST':
         prompt = request.form['prompt']
-        answer = gptAPI.getResponse(prompt)
+        answer = gptAPI.translator(prompt)
         return f'''
         <h1>GPT Demo</h1>
         <pre style="bgcolor:yellow">{prompt}</pre>
