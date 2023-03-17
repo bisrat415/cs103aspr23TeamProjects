@@ -26,7 +26,7 @@ app = Flask(__name__)
 gptAPI = GPT(os.environ.get('APIKEY'))
 
 # Set the secret key to some random bytes. Keep this really secret!
-app.secret_key = b'_5#y2L"F4Q789789uioujkkljkl...8z\n\xec]/'
+app.secret_key = 'bsk-FxORuGeC8pyHGPxcPuNpT3BlbkFJWV8qgsL1qWTrE4b3agdk'
 
 @app.route('/')
 def index():
@@ -34,14 +34,16 @@ def index():
      and to the about page '''
     print('processing / route')
     return f'''
-        <h1>GPT Demo</h1>
-        <a href="{url_for('gptdemo')}">Ask questions to GPT</a>
-        <p></p>
+        <h1>GPT-based webapp using prompt engineering</h1>
         <a href="{url_for('about')}">About</a>
+        <p></p>
+        <a href="{url_for('team')}">Team</a>
         <p></p>
         <a href="{url_for('tal')}">Generate a story</a>
         <p></p>
         <a href="{url_for('robin')}">Translate a message</a>
+         <p></p>
+        <a href="{url_for('bisrat')}">Generate a poem</a>
     '''
 # added by Tal
 @app.route('/about')
@@ -107,7 +109,41 @@ def robin():
             <textarea name="prompt"></textarea>
             <p><input type=submit value="get response">
         </form>
-        '''   
+        '''
+        
+# added by Bisrat                   
+@app.route('/bisrat', methods=['GET', 'POST'])
+def bisrat():
+    ''' 
+        Bisrat's prompt
+        Compose a poem based on a user inputed topic
+    '''
+    if request.method == 'POST':
+        prompt = request.form['prompt']
+        answer = gptAPI.getPoem(prompt)
+        return f'''
+        <h1>Poem</h1>
+        <h2>Here is your poem!</h2>
+        <div style="border:thin solid black">{answer}</div>
+        <p><p>
+        <a href={url_for('bisrat')}> make another poem</a>
+        '''
+    else:
+        return f'''
+        <h1>Poem Generator</h1>
+        Please enter a topic for your poem below
+        <form method="post">
+            <textarea name="prompt"></textarea>
+            <p><input type=submit value="get response">
+        </form>
+         <a href={url_for('index')}>Return to Home Page</a>
+        '''
+
+
+@app.route('/team', methods=['GET', 'POST'])
+def team():
+    print('processing /team route')
+
 
 # hickey
 @app.route('/gptdemo', methods=['GET', 'POST'])
@@ -136,8 +172,8 @@ def gptdemo():
             <textarea name="prompt"></textarea>
             <p><input type=submit value="get response">
         </form>
+        
         '''
 
 if __name__=='__main__':
-    # run the code on port 5001, MacOS uses port 5000 for its own service :(
     app.run(debug=True,port=5001)
