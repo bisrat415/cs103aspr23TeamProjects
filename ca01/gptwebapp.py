@@ -52,28 +52,28 @@ def about():
     ''' contents of about page '''
     return f'''
         <h1>About</h1>
-        <p>Ask ChatGPT - Given by Hickey</p>
+        <p><b>Ask ChatGPT - Given by Hickey</b></p>
         <small>Query ChatGPT</small>
         <br>
         <br>
-        <p>Generate a story - Implemented by Tal Spector</p>
+        <p><b>Generate a story - Implemented by Tal Spector</b></p>
         <small>Asks user for a topic, and returns a paragraph long story</small>
         <br>
         <br>
-        <p>Translate a message - Implemented by Robin Buchthal</p>
+        <p><b>Translate a message - Implemented by Robin Buchthal</b></p>
         <small>Asks the user for a message and a language, then translates
         the message to the given language.</small>
         <br>
         <br>
-        <p>Generate a poem - Implemented by Bisrat Kassie</p>
+        <p><b>Generate a poem - Implemented by Bisrat Kassie</b></p>
         <small>Asks the user for a topic, and then returns a poem based on that the given topic.</small>
         <br>
         <br>
-        <p>Generate a joke - Implemented by Ian Ho</p>
+        <p><b>Generate a joke - Implemented by Ian Ho</b></p>
         <small>Asks the user for a type of joke, and then returns a funny joke that is categorized into the provided joke type.</small>
         <br>
         <br>
-        <p>Make a song - Implemented by Dakota Lichauco</p>
+        <p><b>Make a song - Implemented by Dakota Lichauco</b></p>
         <small>Asks the user for a prompt, and then returns a song based on the given prompt</small>
         <br>
         <br>
