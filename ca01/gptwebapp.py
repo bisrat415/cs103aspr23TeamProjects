@@ -44,7 +44,7 @@ def index():
         <p></p>
         <a href={url_for('team')}>Team Page</a>
     '''
-# added by Tal
+
 @app.route('/about')
 def about():
     ''' contents of about page '''
@@ -91,6 +91,8 @@ def team():
     return f'''
     <h1>Team Biographies/Roles</h1>
     <h4>Tal</h4>
+    <p>Sophomore Computer Science/Linguistics double major<br>
+    Implemented story generator and Index/About pages
     <h4>Robin </h4>
     <h4>Bisrat</h4>
 
