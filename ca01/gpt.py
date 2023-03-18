@@ -83,6 +83,24 @@ class GPT():
 
         response = completion.choices[0].text
         return response
+    
+    # Bisrat
+    def getPoem(self, prompt):
+        ''' 
+            Poem Generator
+            contribution by Bisrat Kassie
+        '''
+        completion = openai.Completion.create(
+            engine=self.model_engine,
+            prompt= f'''Write a poem about this topic, have a catchy title at the beginning: {prompt} \n\n''',
+            max_tokens=1024,
+            n=1,
+            stop=None,
+            temperature=0.8,
+        )
+
+        response = completion.choices[0].text
+        return response
 
 if __name__=='__main__':
     '''

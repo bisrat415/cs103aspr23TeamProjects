@@ -42,6 +42,8 @@ def index():
         <a href="{url_for('tal')}">Generate a story</a>
         <p></p>
         <a href="{url_for('robin')}">Translate a message</a>
+        <p></p>
+        <a href="{url_for('bisrat')}">Generate a poem</a>
     '''
 # added by Tal
 @app.route('/about')
