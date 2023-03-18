@@ -47,23 +47,21 @@ def index():
 def about():
     ''' contents of about page '''
     return f'''
-        <h1>About<h1>
-        <small>This program takes in input from the user and generates a response through ChatGBT.</small>
+        <h1>About</h1>
+        <p>Ask ChatGPT - Given by Hickey</p>
+        <small>Query ChatGPT</small>
         <br>
         <br>
-        <small>Ask questions to ask ChatGBT: method given by Hickey</small>
+        <p>Generate a story - Implemented by Tal Spector</p>
+        <small>Asks user for a topic, and returns a paragraph long story</small>
         <br>
         <br>
-        <small>Generate a story: implemented by Tal Spector that asks the user for a subject prompt and</small>
-        <small>produces a short story based on the user input.</small>
+        <p>Translate a message - Implemented by Robin Buchthal</p>
+        <small>Asks the user for a message and a language, then translates
+        the message to the given language.</small>
         <br>
         <br>
-        <small>Translate a message: implemented by Robin Buchthal that asks the user for a messsage and</small>
-        <small>translates it into the given language.</small>
-        <br>
-        <br>
-
-        <a href={url_for('index')}><small>Return to Home Page</small></a>
+        <a href={url_for('index')}><p>Return to Home Page</p></a>
         '''
 
 @app.route('/tal', methods=['GET', 'POST'])
