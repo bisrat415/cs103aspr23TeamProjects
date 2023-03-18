@@ -145,18 +145,20 @@ def robin():
         <div style="border:thin solid black">{answer}</div>
         Here is the answer in "pre" mode:
         <pre style="border:thin solid black">{answer}</pre>
-        <a href={url_for('gptdemo')}>send another message</a>
+        <a href={url_for('robin')}>send another message</a>
+        <a href={url_for('index')}>Return to Home Page</a>
         '''
     else:
-        return '''
-        <h1>Translate a message</h1>
+        return f'''
+        <h1>Robin's Translator</h1>
         Submit a message to translate into a certain language with the format:
         <b>language, message</b>
         <form method="post">
             <textarea name="prompt"></textarea>
-            <p><input type=submit value="get response">
+            <p><input type=submit value="Get translation">
         </form>
-        '''   
+        <a href={url_for('index')}>Return to Home Page</a>
+        '''  
     
 # added by Bisrat                   
 @app.route('/bisrat', methods=['GET', 'POST'])
@@ -204,6 +206,7 @@ def gptdemo():
         Here is the answer in "pre" mode:
         <pre style="border:thin solid black">{answer}</pre>
         <a href={url_for('gptdemo')}> make another query</a>
+        <a href={url_for('index')}>Return to Home Page</a>
         '''
     else:
         return '''
