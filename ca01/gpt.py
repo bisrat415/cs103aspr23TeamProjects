@@ -120,6 +120,24 @@ class GPT():
 
         response = completion.choices[0].text
         return response
+    
+    #Dakota
+    def getSong(self, prompt):
+        ''' 
+            Write a Song!
+            contribution by Dakota Lichauco
+        '''
+        completion = openai.Completion.create(
+            engine=self.model_engine,
+            prompt= f'''Write lyrics to a song about this topic, create a song name as well: {prompt} \n\n''',
+            max_tokens=1024,
+            n=1,
+            stop=None,
+            temperature=0.8,
+        )
+
+        response = completion.choices[0].text
+        return response
 
 if __name__=='__main__':
     '''

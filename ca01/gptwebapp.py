@@ -86,6 +86,9 @@ def compile():
     <br>
     <br>
     <a href="{url_for('ian')}">Ians Project - Generate a Joke</a>
+    <br>
+    <br>
+    <a href={url_for('dakota')}>Dacoder's Project - Write a Song!</a>
     '''
 
 @app.route('/team')
@@ -226,6 +229,34 @@ def ian():
         <a href={url_for('index')}>Return to Home Page</a>
         '''
 
+# added by Dakota Lichauco
+@app.route('/dakota', methods=['GET', 'POST'])
+def dakota():
+    ''' 
+    Dakota's Prompt
+    Writes a song based on user's suggested topic of a song.
+    '''
+    if request.method == 'POST':
+        prompt = request.form['prompt']
+        answer = gptAPI.getSong(prompt)
+        return f'''
+        <h1>Song</h1>
+        <h2>This is your song!</h2>
+        <div style="border:thin solid black">{answer}</div>
+        <p><p>
+        <a href={url_for('dakota')}> Make another song</a>
+        '''
+    else:
+        return f'''
+        <h1>Write a Song</h1>
+        What would you like your song to be about?
+        <form method="post">
+            <textarea name="prompt"></textarea>
+            <p><input type=submit value="get response">
+        </form>
+        <a href={url_for('index')}>Return to Home Page</a>
+        '''
+    
 # hickey
 @app.route('/gptdemo', methods=['GET', 'POST'])
 def gptdemo():
