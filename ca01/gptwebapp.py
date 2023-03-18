@@ -41,11 +41,6 @@ def index():
         <a href="{url_for('about')}">About</a>
         <p></p>
         <a href={url_for('compile')}>View all prompts</a>
-        <a href="{url_for('tal')}">Generate a story</a>
-        <p></p>
-        <a href="{url_for('robin')}">Translate a message</a>
-        <p></p>
-        <a href="{url_for('bisrat')}">Generate a poem</a>
     '''
 # added by Tal
 @app.route('/about')
@@ -136,7 +131,12 @@ def compile():
     <h1>Individual Prompt Generation</h1>
     <p></p>
     <a href={url_for('tal')}>Tals Project - Story Generator</a>
+    <br>
+    <br>
     <a href={url_for('robin')}>Robins Project - Translator</a>
+    <br>
+    <br>
+    <a href="{url_for('bisrat')}">Bisrats Project - Generate a Poem</a>
     '''
     
 # added by Bisrat                   
