@@ -35,14 +35,14 @@ def index():
     and to the about page
     '''
     return f'''
-        <h1>Creative Assignment 01</h1>
-        <a href="{url_for('gptdemo')}">Ask questions to GPT</a>
+        <h1 style="text-align: center">Creative Assignment 01</h1>
+        <a href="{url_for('gptdemo')}"><center>Ask questions to GPT</center></a>
         <p></p>
-        <a href="{url_for('about')}">About</a>
+        <a href="{url_for('about')}"><center>About</center></a>
         <p></p>
-        <a href={url_for('compile')}>Index</a>
+        <a href={url_for('compile')}><center>Index</center></a>
         <p></p>
-        <a href={url_for('team')}>Team Page</a>
+        <a href={url_for('team')}><center>Team Page<center></a>
     '''
 
 @app.route('/about')
@@ -95,9 +95,9 @@ def team():
     Implemented story generator and Index/About pages
     <h4>Robin </h4>
     <p>Sophomore Computer Science major Mathematics minorr<br>
-    Implemented translator, About page, and added the return to home link on some of the pages
+    Implemented translator, About page, added the return to home link on some of the pages, and style
     <h4>Bisrat</h4>
-
+    <a href={url_for('index')}>Return to Home Page</a>
     '''
 
 @app.route('/tal', methods=['GET', 'POST'])
@@ -209,15 +209,17 @@ def gptdemo():
         <a href={url_for('index')}>Return to Home Page</a>
         '''
     else:
-        return '''
+        return f'''
         <h1>GPT Demo App</h1>
         Enter your query below
         <form method="post">
             <textarea name="prompt"></textarea>
             <p><input type=submit value="get response">
         </form>
+        <a href={url_for('index')}>Return to Home Page</a>
         '''
+    
 
 if __name__=='__main__':
     # run the code on port 5001, MacOS uses port 5000 for its own service :(
-    app.run(debug=True,port=5001)
+    app.run(debug=True,port=5002)
