@@ -40,14 +40,11 @@ def index():
         <p></p>
         <a href="{url_for('about')}">About</a>
         <p></p>
-        <a href={url_for('compile')}>View all prompts</a>
-        <a href="{url_for('tal')}">Generate a story</a>
+        <a href={url_for('compile')}>Index</a>
         <p></p>
-        <a href="{url_for('robin')}">Translate a message</a>
-        <p></p>
-        <a href="{url_for('bisrat')}">Generate a poem</a>
+        <a href={url_for('team')}>Team Page</a>
     '''
-# added by Tal
+
 @app.route('/about')
 def about():
     ''' contents of about page '''
@@ -68,6 +65,42 @@ def about():
         <br>
         <a href={url_for('index')}><p>Return to Home Page</p></a>
         '''
+
+@app.route('/index')
+def compile():
+    '''
+    index of each team members prompt
+    '''
+    return f'''
+    <h1>Individual Prompt Generation</h1>
+    <p></p>
+    <a href={url_for('tal')}>Tals Project - Story Generator</a>
+    <br>
+    <br>
+    <a href={url_for('robin')}>Robins Project - Translator</a>
+    <br>
+    <br>
+    <a href="{url_for('bisrat')}">Bisrats Project - Generate a Poem</a>
+    <br>
+    <br>
+    <a href="{url_for('index')}">Return to Home Page</a>
+    '''
+
+@app.route('/team')
+def team():
+    '''
+    Bio of each team member and what their role was
+    '''
+    return f'''
+    <h1>Team Biographies/Roles</h1>
+    <h4>Tal</h4>
+    <p>Sophomore Computer Science and Linguistics double major<br>
+    Implemented the story generator and Index</p>
+    <h4>Robin </h4>
+    <h4>Bisrat</h4>
+
+    <a href="{url_for('index')}">Return to Home Page</a>
+    '''
 
 @app.route('/tal', methods=['GET', 'POST'])
 def tal():
@@ -126,18 +159,6 @@ def robin():
             <p><input type=submit value="get response">
         </form>
         '''   
-
-@app.route('/index')
-def compile():
-    '''
-    index of each team members prompt
-    '''
-    return f'''
-    <h1>Individual Prompt Generation</h1>
-    <p></p>
-    <a href={url_for('tal')}>Tals Project - Story Generator</a>
-    <a href={url_for('robin')}>Robins Project - Translator</a>
-    '''
     
 # added by Bisrat                   
 @app.route('/bisrat', methods=['GET', 'POST'])
