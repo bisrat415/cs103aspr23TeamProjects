@@ -68,7 +68,7 @@ class GPT():
     def translator(self, prompt):
         ''' 
             Language Translator
-            contribution by Robin Buchthal
+            contribution by Robin Buchthal 
         '''
         completion = openai.Completion.create(
             engine=self.model_engine,

@@ -49,8 +49,22 @@ def about():
     ''' contents of about page '''
     return f'''
         <h1>About<h1>
-        <p>Insert things about this project<p>
-        <a href={url_for('index')}>Return to Home Page</a>
+        <small>This program takes in input from the user and generates a response through ChatGBT.</small>
+        <br>
+        <br>
+        <small>Ask questions to ask ChatGBT: method given by Hickey</small>
+        <br>
+        <br>
+        <small>Generate a story: implemented by Tal Spector that asks the user for a subject prompt and</small>
+        <small>produces a short story based on the user input.</small>
+        <br>
+        <br>
+        <small>Translate a message: implemented by Robin Buchthal that asks the user for a messsage and</small>
+        <small>translates it into the given language.</small>
+        <br>
+        <br>
+
+        <a href={url_for('index')}><small>Return to Home Page</small></a>
         '''
 
 @app.route('/tal', methods=['GET', 'POST'])
@@ -102,7 +116,8 @@ def robin():
     else:
         return '''
         <h1>GPT Demo App</h1>
-        Enter your query below
+        Submit a message to translate into a certain language with the format:
+        <b>language, message</b>
         <form method="post">
             <textarea name="prompt"></textarea>
             <p><input type=submit value="get response">
