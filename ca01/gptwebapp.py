@@ -44,7 +44,7 @@ def index():
         <p></p>
         <a href={url_for('team')}>Team Page</a>
     '''
-# added by Tal
+
 @app.route('/about')
 def about():
     ''' contents of about page '''
@@ -65,36 +65,6 @@ def about():
         <br>
         <a href={url_for('index')}><p>Return to Home Page</p></a>
         '''
-
-@app.route('/index')
-def compile():
-    '''
-    index of each team members prompt
-    '''
-    return f'''
-    <h1>Individual Prompt Generation</h1>
-    <p></p>
-    <a href={url_for('tal')}>Tals Project - Story Generator</a>
-    <br>
-    <br>
-    <a href={url_for('robin')}>Robins Project - Translator</a>
-    <br>
-    <br>
-    <a href="{url_for('bisrat')}">Bisrats Project - Generate a Poem</a>
-    '''
-
-@app.route('/team')
-def team():
-    '''
-    Bio of each team member and what their role was
-    '''
-    return f'''
-    <h1>Team Biographies/Roles</h1>
-    <h4>Tal</h4>
-    <h4>Robin </h4>
-    <h4>Bisrat</h4>
-
-    '''
 
 @app.route('/tal', methods=['GET', 'POST'])
 def tal():
