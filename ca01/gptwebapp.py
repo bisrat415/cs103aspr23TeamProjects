@@ -30,15 +30,17 @@ app.secret_key = b'_5#y2L"F4Q789789uioujkkljkl...8z\n\xec]/'
 
 @app.route('/')
 def index():
-    ''' display a link to the general query page
-     and to the about page '''
-    print('processing / route')
+    ''' 
+    display a link to the general query page
+    and to the about page
+    '''
     return f'''
-        <h1>GPT Demo</h1>
+        <h1>Creative Assignment 01</h1>
         <a href="{url_for('gptdemo')}">Ask questions to GPT</a>
         <p></p>
         <a href="{url_for('about')}">About</a>
         <p></p>
+        <a href={url_for('compile')}>View all prompts</a>
         <a href="{url_for('tal')}">Generate a story</a>
         <p></p>
         <a href="{url_for('robin')}">Translate a message</a>
@@ -50,23 +52,21 @@ def index():
 def about():
     ''' contents of about page '''
     return f'''
-        <h1>About<h1>
-        <small>This program takes in input from the user and generates a response through ChatGBT.</small>
+        <h1>About</h1>
+        <p>Ask ChatGPT - Given by Hickey</p>
+        <small>Query ChatGPT</small>
         <br>
         <br>
-        <small>Ask questions to ask ChatGBT: method given by Hickey</small>
+        <p>Generate a story - Implemented by Tal Spector</p>
+        <small>Asks user for a topic, and returns a paragraph long story</small>
         <br>
         <br>
-        <small>Generate a story: implemented by Tal Spector that asks the user for a subject prompt and</small>
-        <small>produces a short story based on the user input.</small>
+        <p>Translate a message - Implemented by Robin Buchthal</p>
+        <small>Asks the user for a message and a language, then translates
+        the message to the given language.</small>
         <br>
         <br>
-        <small>Translate a message: implemented by Robin Buchthal that asks the user for a messsage and</small>
-        <small>translates it into the given language.</small>
-        <br>
-        <br>
-
-        <a href={url_for('index')}><small>Return to Home Page</small></a>
+        <a href={url_for('index')}><p>Return to Home Page</p></a>
         '''
 
 @app.route('/tal', methods=['GET', 'POST'])
@@ -84,6 +84,7 @@ def tal():
         <p>{answer}<p>
         <p><p>
         <a href={url_for('tal')}>Request another story</a>
+        <a href={url_for('index')}>Return to Home Page</a>
         '''
     else:
         return f'''
@@ -126,6 +127,18 @@ def robin():
         </form>
         '''   
 
+@app.route('/index')
+def compile():
+    '''
+    index of each team members prompt
+    '''
+    return f'''
+    <h1>Individual Prompt Generation</h1>
+    <p></p>
+    <a href={url_for('tal')}>Tals Project - Story Generator</a>
+    <a href={url_for('robin')}>Robins Project - Translator</a>
+    '''
+    
 # added by Bisrat                   
 @app.route('/bisrat', methods=['GET', 'POST'])
 def bisrat():
@@ -153,7 +166,7 @@ def bisrat():
         </form>
          <a href={url_for('index')}>Return to Home Page</a>
         '''
-    
+
 # hickey
 @app.route('/gptdemo', methods=['GET', 'POST'])
 def gptdemo():

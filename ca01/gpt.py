@@ -53,8 +53,9 @@ class GPT():
         '''
         completion = openai.Completion.create(
             engine=self.model_engine,
-            prompt= f'''Write a story no longer than a paragraph about 
-                this topic, don't include a title: {prompt} \n\n''',
+            prompt= f'''Write a story in JR Tolkeins voice that is 
+            no longer than a paragraph about the given topic, don't 
+            include a title: {prompt} \n\n''',
             max_tokens=1024,
             n=1,
             stop=None,
