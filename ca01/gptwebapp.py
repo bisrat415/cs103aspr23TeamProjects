@@ -124,6 +124,34 @@ def robin():
         </form>
         '''   
 
+# added by Bisrat                   
+@app.route('/bisrat', methods=['GET', 'POST'])
+def bisrat():
+    ''' 
+        Bisrat's prompt
+        Compose a poem based on a user inputed topic
+    '''
+    if request.method == 'POST':
+        prompt = request.form['prompt']
+        answer = gptAPI.getPoem(prompt)
+        return f'''
+        <h1>Poem</h1>
+        <h2>Here is your poem!</h2>
+        <div style="border:thin solid black">{answer}</div>
+        <p><p>
+        <a href={url_for('bisrat')}> make another poem</a>
+        '''
+    else:
+        return f'''
+        <h1>Poem Generator</h1>
+        Please enter a topic for your poem below
+        <form method="post">
+            <textarea name="prompt"></textarea>
+            <p><input type=submit value="get response">
+        </form>
+         <a href={url_for('index')}>Return to Home Page</a>
+        '''
+    
 # hickey
 @app.route('/gptdemo', methods=['GET', 'POST'])
 def gptdemo():
