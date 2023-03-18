@@ -41,6 +41,11 @@ def index():
         <a href="{url_for('about')}">About</a>
         <p></p>
         <a href={url_for('compile')}>View all prompts</a>
+        <a href="{url_for('tal')}">Generate a story</a>
+        <p></p>
+        <a href="{url_for('robin')}">Translate a message</a>
+        <p></p>
+        <a href="{url_for('bisrat')}">Generate a poem</a>
     '''
 # added by Tal
 @app.route('/about')
@@ -109,11 +114,11 @@ def robin():
         <div style="border:thin solid black">{answer}</div>
         Here is the answer in "pre" mode:
         <pre style="border:thin solid black">{answer}</pre>
-        <a href={url_for('gptdemo')}>make another query</a>
+        <a href={url_for('gptdemo')}>send another message</a>
         '''
     else:
         return '''
-        <h1>GPT Demo App</h1>
+        <h1>Translate a message</h1>
         Submit a message to translate into a certain language with the format:
         <b>language, message</b>
         <form method="post">
@@ -133,7 +138,34 @@ def compile():
     <a href={url_for('tal')}>Tals Project - Story Generator</a>
     <a href={url_for('robin')}>Robins Project - Translator</a>
     '''
-
+    
+# added by Bisrat                   
+@app.route('/bisrat', methods=['GET', 'POST'])
+def bisrat():
+    ''' 
+        Bisrat's prompt
+        Compose a poem based on a user inputed topic
+    '''
+    if request.method == 'POST':
+        prompt = request.form['prompt']
+        answer = gptAPI.getPoem(prompt)
+        return f'''
+        <h1>Poem</h1>
+        <h2>Here is your poem!</h2>
+        <div style="border:thin solid black">{answer}</div>
+        <p><p>
+        <a href={url_for('bisrat')}> make another poem</a>
+        '''
+    else:
+        return f'''
+        <h1>Poem Generator</h1>
+        Please enter a topic for your poem below
+        <form method="post">
+            <textarea name="prompt"></textarea>
+            <p><input type=submit value="get response">
+        </form>
+         <a href={url_for('index')}>Return to Home Page</a>
+        '''
 
 # hickey
 @app.route('/gptdemo', methods=['GET', 'POST'])
