@@ -94,6 +94,8 @@ def team():
     <p>Sophomore Computer Science/Linguistics double major<br>
     Implemented story generator and Index/About pages
     <h4>Robin </h4>
+    <p>Sophomore Computer Science major Mathematics minorr<br>
+    Implemented translator and About page
     <h4>Bisrat</h4>
 
     '''
