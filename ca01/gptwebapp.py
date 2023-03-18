@@ -35,6 +35,8 @@ def index():
     and to the about page
     '''
     return f'''
+        <br>
+        <br>
         <h1 style="text-align: center">Creative Assignment 01</h1>
         <a href="{url_for('gptdemo')}"><center>Ask questions to GPT</center></a>
         <p></p>
