@@ -113,11 +113,11 @@ def robin():
         <div style="border:thin solid black">{answer}</div>
         Here is the answer in "pre" mode:
         <pre style="border:thin solid black">{answer}</pre>
-        <a href={url_for('gptdemo')}>make another query</a>
+        <a href={url_for('gptdemo')}>send another message</a>
         '''
     else:
         return '''
-        <h1>GPT Demo App</h1>
+        <h1>Translate a message</h1>
         Submit a message to translate into a certain language with the format:
         <b>language, message</b>
         <form method="post">
