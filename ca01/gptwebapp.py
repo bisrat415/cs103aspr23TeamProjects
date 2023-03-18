@@ -30,9 +30,10 @@ app.secret_key = b'_5#y2L"F4Q789789uioujkkljkl...8z\n\xec]/'
 
 @app.route('/')
 def index():
-    ''' display a link to the general query page
-     and to the about page '''
-    # print('processing / route')
+    ''' 
+    display a link to the general query page
+    and to the about page
+    '''
     return f'''
         <h1>Creative Assignment 01</h1>
         <a href="{url_for('gptdemo')}">Ask questions to GPT</a>
