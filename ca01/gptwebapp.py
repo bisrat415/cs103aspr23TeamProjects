@@ -95,7 +95,7 @@ def team():
     Implemented story generator and Index/About pages
     <h4>Robin </h4>
     <p>Sophomore Computer Science major Mathematics minorr<br>
-    Implemented translator and About page
+    Implemented translator, About page, and added the return to home link on some of the pages
     <h4>Bisrat</h4>
 
     '''
