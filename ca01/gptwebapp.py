@@ -51,33 +51,28 @@ def index():
 def about():
     ''' contents of about page '''
     return f'''
-        <h1>About</h1>
-        <p><b>Ask ChatGPT - Given by Hickey</b></p>
-        <small>Query ChatGPT</small>
         <br>
+        <h1><center>About</center></h1>
+        <p><b><center>Ask ChatGPT - Given by Hickey</center></b></p>
+        <small><center>Query ChatGPT</center></small>
         <br>
-        <p><b>Generate a story - Implemented by Tal Spector</b></p>
-        <small>Asks user for a topic, and returns a paragraph long story</small>
+        <p><b><center>Generate a story - Implemented by Tal Spector</center></b></p>
+        <small><center>Asks user for a topic, and returns a paragraph long story</center></small>
         <br>
+        <p><b><center>Translate a message - Implemented by Robin Buchthal</center></b></p>
+        <small><center>Asks the user for a message and a language, then translates
+        the message to the given language.</center></small>
         <br>
-        <p><b>Translate a message - Implemented by Robin Buchthal</b></p>
-        <small>Asks the user for a message and a language, then translates
-        the message to the given language.</small>
+        <p><b><center>Generate a poem - Implemented by Bisrat Kassie</center></b></p>
+        <small><center>Asks the user for a topic, and then returns a poem based on that the given topic.</center></small>
         <br>
+        <p><b><center>Generate a joke - Implemented by Ian Ho</center></b></p>
+        <small><center>Asks the user for a type of joke, and then returns a funny joke that is categorized into the provided joke type.</center></small>
         <br>
-        <p><b>Generate a poem - Implemented by Bisrat Kassie</b></p>
-        <small>Asks the user for a topic, and then returns a poem based on that the given topic.</small>
+        <p><b><center>Make a song - Implemented by Dakota Lichauco</center></b></p>
+        <small><center>Asks the user for a prompt, and then returns a song based on the given prompt</center></small>
         <br>
-        <br>
-        <p><b>Generate a joke - Implemented by Ian Ho</b></p>
-        <small>Asks the user for a type of joke, and then returns a funny joke that is categorized into the provided joke type.</small>
-        <br>
-        <br>
-        <p><b>Make a song - Implemented by Dakota Lichauco</b></p>
-        <small>Asks the user for a prompt, and then returns a song based on the given prompt</small>
-        <br>
-        <br>
-        <a href={url_for('index')}><p>Return to Home Page</p></a>
+        <a href={url_for('index')}><p><center>Return to Home Page</center></p></a>
         '''
 
 @app.route('/index')
@@ -86,21 +81,30 @@ def compile():
     index of each team members prompt
     '''
     return f'''
-    <h1>Individual Prompt Generation</h1>
+    <br>
+    <br>
+    <h1><center>Individual Prompt Generation</center></h1>
     <p></p>
-    <a href={url_for('tal')}>Tals Project - Story Generator</a>
+    <a href={url_for('tal')}><center>Tal's Project - Story Generator</center></a>
     <br>
     <br>
-    <a href={url_for('robin')}>Robins Project - Translator</a>
+    <a href={url_for('robin')}><center>Robin's Project - Translator</center></a>
     <br>
     <br>
-    <a href="{url_for('bisrat')}">Bisrats Project - Generate a Poem</a>
+    <a href="{url_for('bisrat')}"><center>Bisrat's Project - Generate a Poem</center></a>
     <br>
     <br>
-    <a href="{url_for('ian')}">Ians Project - Generate a Joke</a>
+    <a href="{url_for('ian')}"><center>Ian's Project - Generate a Joke</center></a>
     <br>
     <br>
-    <a href={url_for('dakota')}>Dacoder's Project - Write a Song!</a>
+    <a href={url_for('dakota')}><center>Dacoder's Project - Write a Song!</center></a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href={url_for('index')}><center>Return to home page</center></a>
     '''
 
 @app.route('/team')
@@ -109,9 +113,10 @@ def team():
     Bio of each team member and what their role was
     '''
     return f'''
-    <h1>Team Biographies/Roles</h1>
-    <h4>Tal</h4>
-    <p>Sophomore Computer Science/Linguistics double major<br>
+    <br>
+    <h1><center>Team Biographies/Roles</center></h1>
+    <h4><center>Tal</center></h4>
+    <p><center>Sophomore Computer Science/Linguistics double major<br>
     Implemented story generator and Index/About pages
     <h4>Robin </h4>
     <p>Sophomore Computer Science major Mathematics minor<br>
@@ -125,7 +130,9 @@ def team():
      <h4>Dakota</h4>
     <p>Sophomore Computer Science and Math major<br>
     Implemented Song generator
-    <br><br>
+    <br>
+    <br>
+    <br>
     <a href={url_for('index')}>Return to Home Page</a>
     '''
 
@@ -179,13 +186,21 @@ def robin():
         '''
     else:
         return f'''
-        <h1>Robin's Translator</h1>
-        Submit a message to translate into a certain language with the format:
+        <br>
+        <h1 style="color: #2C5E1A"><center>Robin's Translator<center></h1>
+        <center>Submit a message to translate into a certain language with the format:
         <b>language, message</b>
+        <br>
+        <br>
+        <br>
         <form method="post">
             <textarea name="prompt"></textarea>
             <p><input type=submit value="Get translation">
         </form>
+        <img src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/512M+bmEuKL.jpg" heigt="50px" width="auto" alt="cat selfie">
+        <br>
+        <br>
+        <br>
         <a href={url_for('index')}>Return to Home Page</a>
         '''  
     
