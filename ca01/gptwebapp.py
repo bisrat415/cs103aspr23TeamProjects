@@ -64,7 +64,7 @@ def about():
         the message to the given language.</center></small>
         <br>
         <p><b><center>Generate a poem - Implemented by Bisrat Kassie</center></b></p>
-        <small><center>Asks the user for a topic, and then returns a poem based on that the given topic.</center></small>
+        <small><center>Asks the user for a topic, and then returns a poem based on the given topic.</center></small>
         <br>
         <p><b><center>Generate a joke - Implemented by Ian Ho</center></b></p>
         <small><center>Asks the user for a type of joke, and then returns a funny joke that is categorized into the provided joke type.</center></small>
@@ -128,8 +128,8 @@ def team():
     <p>Sophomore Computer Science and Business major<br>
     Implemented joke generator 
      <h4>Dakota</h4>
-    <p>Sophomore Computer Science and Math major<br>
-    Implemented Song generator
+    <p>Sophomore Computer Science and Applied Math major; music minor<br>
+    Implemented song generator
     <br>
     <br>
     <br>
